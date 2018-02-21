@@ -1,0 +1,15 @@
+[{
+    "properties": {
+        "country": "Guinea",
+        "title": "The 2014 Ebola outbreak",
+        "youtube" : "FeBBCISf3lY"
+    },
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -10.899665,
+            10.512121
+        ]
+    }
+}]

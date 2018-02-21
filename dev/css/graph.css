@@ -1,0 +1,87 @@
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+}
+
+.credit {
+    margin-top: 0.777em;
+    color: #444;
+    text-align: center;
+}
+
+rect {
+    fill: #FFF;
+    stroke: #FFF;
+    stroke-width: 1px;
+}
+
+text {
+    font-size: 12px;
+    color: #333;
+}
+
+.legend > span {
+    display: inline-block;
+    position: relative;
+    margin-left: 2.2em;
+}
+
+.legend > span:before {
+    content: '';
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    position: absolute;
+    left: -1.4em;
+}
+
+.industrial {
+    fill: #5191A5;
+}
+.industrial:before {
+    background-color: #5191A5;
+}
+
+.flood {
+    fill: #555567;
+}
+.flood:before {
+    background-color: #555567;
+}
+
+.earthquake {
+    fill: #ff914e;
+}
+.earthquake:before {
+    background-color: #ff914e;
+}
+
+.epidemic {
+    fill: #ff4e64;
+}
+.epidemic:before {
+    background-color: #ff4e64;
+}
+
+.drought {
+    fill: #4eff91;
+}
+.drought:before {
+    background-color: #4eff91;
+}
+
+.transport {
+    fill: #ff9bd9;
+}
+.transport:before {
+    background-color: #ff9bd9;
+}
+
+.miscellaneous {
+    fill: #cccccc;
+}
+.miscellaneous:before {
+    background-color: #cccccc;
+}
+

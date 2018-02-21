@@ -1,0 +1,305 @@
+body,
+.tall {
+    height: 100%;
+    height: 100vh;
+}
+
+h1,
+h3,
+h5{
+    font-family: 'Georgia', Times, "Times New Roman", serif;
+    color: #333;
+}
+
+h2,
+h4,
+h6,
+p {
+    font-family: 'Lato', "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    color: #333;
+}
+
+h3 {
+    line-height: 1.75em;
+}
+
+h3 span {
+    font-style:italic;
+}
+
+h4 {
+    font-size: 1.025em;
+    line-height: 1.775em;
+}
+
+h5 {
+    font-size: 1em;
+}
+
+h6,label {
+    font-size: 0.777em;
+    color: #444;
+}
+
+
+p {
+    font-size:0.8em;
+}
+
+form {
+    margin:0;
+}
+
+label{
+    color: #666;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea {
+    border: 1px solid #ccc;
+}
+
+[class*="column"] + [class*="column"]:last-child {
+    float:left; /*override the last item being right-floated*/
+}
+
+[data-magellan-expedition] {
+    border-bottom:1px solid #85A9B5;
+    z-index:99;
+}
+
+[data-magellan-expedition-clone] .sub-nav {
+    margin:-0.25rem 0 0.9rem; /* correction for overflown space in the clone*/
+}
+
+.sub-nav dd:first-child {
+    margin-left:2.45em;
+    color:#333;
+}
+
+/* map */
+.map,
+.reports {
+    margin-top:45px;
+}
+
+.map {
+    height:100%;
+    min-height: 600px;
+    overflow:hidden;
+}
+
+.about {
+    position:fixed;
+    top:1.2em;
+    right:1em;
+    z-index:100;
+    font-size:60%;
+}
+
+.logo-rw  {
+    margin-top: 4px;
+    width: 60px;
+}
+
+.sub-nav {
+    float: left;
+}
+
+.sub-nav dd a {
+    padding: 1.875rem 0.5rem;
+}
+
+.logos {
+    float: right;
+}
+
+.logos a {
+    margin-right: 0.4em;
+}
+
+/* reports */
+#expand-search {
+    display: block;
+    position: absolute;
+    top: 4em;
+    right: 1.5em;
+    font-size: 70%;
+    color: #999;
+}
+
+#expand-search:hover {
+    text-decoration: underline;
+}
+
+.reports h3 {
+    color:#333;
+}
+
+.report {
+    padding: 0 1em 1em;
+}
+
+.report img {
+    width:24px;
+    margin-right:1em;
+}
+
+.report-top {
+    padding: 0.725em 1.425em 0.225em;
+    display: inline-block;
+    background: #e7e7e7;
+    border-top-right-radius: 7px;
+    min-height: 50px;
+}
+
+.report-content {
+    background: #fff;
+    padding: 1em 1.425em 3em;
+    border: 1px solid #e7e7e7;
+    overflow: hidden;
+    position: relative;
+}
+
+.reports .report-content {
+    min-height:188px;
+}
+
+.report-body {
+    overflow: hidden;
+}
+
+.report-under {
+    position: absolute;
+    height: 1em;
+    bottom: 1em;
+    right: 1em;
+    font-size: 0.825em;
+}
+
+.readmore {
+    position:absolute;
+    left:inherit;
+    bottom:4em;
+}
+
+.tweet {
+    margin-top:1em;
+}
+
+.tweet .report-top {
+    color:#777;
+}
+
+.tweet .report-content {
+    background:#f2f2f2;
+    border:1px solid #ddd;
+    height: 9em;
+}
+
+.tweet .report:hover .report-content{
+    background: #e7e7e7;
+}
+
+.source {
+    color: #222;
+    margin: 0 0 0.2775em;
+}
+
+.dateline {
+    font-style: italic;
+    color: #666;
+
+}
+
+ul.pagination {
+    margin-top: 14px;
+}
+
+ul.pagination li a:hover,
+ul.pagination li.current a {
+    background-color: #85A9B5;
+    -webkit-transition: background-color 400ms ease-in-out;
+    -moz-transition: background-color 400ms ease-in-out;
+    -o-transition: background-color 400ms ease-in-out;
+    -ms-transition: background-color 400ms ease-in-out;
+    transition: background-color 400ms ease-in-out;
+}
+
+.slider {
+    top: 0;
+    left: 0;
+    opacity: 1;
+    -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    -ms-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+}
+
+.slider.hidden {
+    position: absolute;
+    top: -80px;
+    width: 100%;
+    opacity: 0;
+    display: none;
+}
+
+/* country profiles */
+.graph h5 {
+    color:#777;
+    margin:1em 0;
+}
+
+.demographic table {
+    width:100%;
+}
+
+.data-source:before {
+    content: "Source: ";
+    padding-left:1.2em;
+}
+
+.graph, .tweet {
+    margin-top: 4em;
+}
+
+.underline {
+    border-bottom: 1px solid #aaa;
+}
+
+.underline a {
+    color: #333;
+}
+
+@media only screen and (min-width: 40.063em) {
+    .reports {
+        height:100%;
+        min-height: 600px;
+        overflow:hidden;
+    }
+}
+
+@media only screen and (min-width: 64.063em) {
+    #report-list > .report { height: 16em; }
+}
+
+/* Footer */
+
+.footer {
+    float: right;
+    margin-right: 31px;
+    margin-left: 31px;
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+
+    <title>Ebola outbreak in Guinea - a ReliefWeb Labs Project</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link rel='shortcut icon' href='img/favicon.ico' type='image/x-icon' />
+
+    <!-- foundation, datepicker, font awesome -->
+    <link rel="stylesheet" type="text/css" href="build/css/lib.min.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css" />
+    <link rel="stylesheet" type="text/css" href="build/css/relief-web-disaster-tracker.min.css" />
+
+    <script src="build/js/modernizr.js"></script>
+</HEAD>
+<BODY>
+    <div id="disaster-app" class="tall">
+        <div data-magellan-expedition="fixed" class="fixed hide-for-small">
+            <dl class="sub-nav">
+                <dd>You are currently viewing</dd>
+                <dd data-magellan-arrival="reports"><a href="#reports">Disaster Reports</a></dd>
+                <dd data-magellan-arrival="profiles"><a href="#profiles">Country Profile</a></dd>
+                <dd data-magellan-arrival="tweets"><a href="#tweets">Related Tweets</a></dd>
+            </dl>
+            <div class="logos">
+                <a target="_blank" href="http://reliefweb.int"><img class="logo-rw" src="img/rw.png"/></a>
+            </div>
+        </div>
+
+        <!-- reports -->
+        <div class="reports medium-8 column">
+            <a name="reports"></a>
+            <h3 class="medium-6 column" data-magellan-destination="reports">Reports: <span>Guinea</span></h3>
+            <div class="medium-6 column">
+                <ul id="report-pagination" class="pagination">
+                    <li class="arrow prev"><a href="#">&laquo;</a></li>
+                    <li class="arrow next"><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+            <!-- begin search -->
+            <form id="report-search">
+                <div class="medium-12 column">
+                    <div class="row collapse">
+                        <div class="small-10 column">
+                            <input type="text" id="report-query-value" placeholder="Enter search terms" />
+                        </div>
+                        <div class="small-2 column">
+                            <input type="submit" value="Search" class="button postfix" />
+                        </div>
+                    </div>
+                    <a id="expand-search" href="#">More Options</a>
+                </div>
+
+                <div class="relative">
+
+                    <div id="search-options" class="slider hidden">
+                        <div class="medium-2 column">
+                            <label># of results</label>
+                            <input id="report-number" type="text" placeholder="1000 max" />
+                        </div>
+                        <div class="medium-2 column">
+                            <label>Start date</label>
+                            <input id="datepicker-start" type="text" placeholder="2-3-1980" />
+                        </div>
+                        <div class="medium-2 column">
+                            <label>End date</label>
+                            <input id="datepicker-end" type="text" placeholder="2-3-1980" />
+                        </div>
+                        <div class="medium-6 column">
+                            <label>Exclude these terms</label>
+                            <input id="report-exlude" type="text" placeholder="" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div id="report-list">
+                <!-- report cards here -->
+            </div>
+        </div>
+        <!-- map -->
+        <div id= "app-map" class="medium-4 column map"></div>
+
+        <div class="graph medium-12 column">
+            <a name="profiles"></a>
+            <h3 class="medium-12 column" data-magellan-destination="profiles">Country Profile</h3>
+
+            <div class="demographic medium-3 column">
+                <h5>Guinea Demographics
+                    <small class="data-source">
+                        <a target="_blank" href="http://hdr.undp.org/en/data/api">UNDP</a>
+                    </small>
+                </h5>
+                <div id="demographic-chart" class=""></div>
+            </div>
+
+            <div class="historical medium-9 column hide-for-small">
+                <div class="row">
+                    <div class="small-12 medium-centered column">
+                        <h5>Historical Disasters
+                            <small class="data-source">
+                            <a target="_blank" href="http://www.emdat.be">
+                                EM-DAT: The OFDA/CRED International Disaster Database - www.emdat.be, Universit&eacute; Catholique de Louvain, Brussels (Belgium)
+                            </a>
+                            </small>
+                        </h5>
+                        <div class="legend">
+                            <span class="earthquake">Earthquake</span>
+                            <span class="epidemic">Epidemic</span>
+                            <span class="transport">Transport</span>
+                            <span class="industrial">Industrial</span>
+                            <span class="flood">Flood</span>
+                            <span class="drought">Drought</span>
+                            <span class="miscellaneous">Other</span>
+                        </div>
+                        <div id="historical-chart">
+                            <!-- historical chart -->
+                        </div>
+                        <p class="credit">Number of people killed per year, by disaster type</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- tweets -->
+        <div class="tweet medium-12 column">
+            <a name="tweets"></a>
+            <h3 class="medium-12 column" data-magellan-destination="tweets">Related Tweets</h3>
+            <div id="tweet-list">
+            <!-- tweet cards here -->
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <p>Open source project by <a href="http://reliefweb.int">ReliefWeb</a>. <a href="https://github.com/reliefweb/disaster-tracker#reliefweb-disaster-tracker">Learn more</a> about the project and <a href="https://github.com/reliefweb/disaster-tracker/blob/master/CONTRIBUTING.md#how-to-contribute">contribute</a> on GitHub.</p>
+        </div>
+
+    </div>
+
+    <!-- templates -->
+    <div id="templates">
+
+        <script type="text/template" id="report-template">
+            <div class="report large-6 column">
+                <div class="report-top">
+                    <h6 class="source"><%- source[0].name %></h6>
+                </div>
+                <div class="report-content">
+                    <div class="report-body">
+                        <h6 class="dateline"><%- dateline %></h6>
+                        <h4><span class="underline"><a target="_blank" href="<%- url %>"><%- format[0].name %></a></span>: <%- lead %></h4>
+                    </div>
+                    <a class="report-under" target="_blank" href="<%- url %>">Read on Reliefweb</a>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/template" id="tweet-template">
+            <div class="report medium-4 column">
+                <a target="_blank" href="http://twitter.com/<%- user %>/status/<%- id_str %>">
+                    <div class="report-content">
+                        <h5 class="dateline"><img src="<%- user_image %>"/><%- user %></h5>
+                        <p><%- text %></p>
+                    </div>
+                </a>
+            </div>
+        </script>
+
+        <script type="text/template" id="pagination-template">
+            <li id="<%- id %>" class="pagination-item">
+                <a href="#">
+                    <%- num %>
+                </a>
+            </li>
+        </script>
+
+        <script type="text/template" id="marker-template">
+            <h3><b><%- properties.title %></b> is the most recent disaster in <b><%- properties.country %></b>.</h3>
+            <% if (properties.youtube){%>
+                <iframe width="100%" height="100%" src="//www.youtube.com/embed/<%- properties.youtube %>" frameborder="0" disablekb="1" controls="2" start="130" allowfullscreen></iframe>
+            <%} %>
+        </script>
+
+
+        <script type="text/template" id="demo-template">
+            <table>
+                <tr>
+                    <td>Total Population</td>
+                    <td class="demo-num"><%- _2012_population %>M</td>
+                </tr>
+                <tr>
+                    <td>Life Expectancy at Birth</td>
+                    <td class="demo-num"><%- _2012_life_expectancy_at_birth%></td>
+                </tr>
+                <tr>
+                    <td>HDI Rank</td>
+                    <td class="demo-num"><%- _2012_hdi_rank %></td>
+                </tr>
+            </table>
+        </script>
+
+
+    </div>
+    <script type="text/javascript" src="lib/jquery/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="build/js/foundation.min.js"></script>
+    <script type="text/javascript" src="build/js/lib.min.js"></script>
+    <script type="text/javascript" src="build/js/relief-web-disaster-tracker.js"></script>
+
+    <!-- google analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-105760-10', 'reliefweb.int');
+    ga('send', 'pageview');
+
+    </script>
+</BODY>
